@@ -17,6 +17,8 @@ RUN apt-get update \
      x11-common \
      xvfb \
   && python2 -m pip install --upgrade pip \
+  && curl -sL https://deb.nodesource.com/setup_8.x | /bin/bash - \
+  && apt-get install -y nodejs \
   && wget -q https://download.calibre-ebook.com/3.26.0/calibre-3.26.0-x86_64.txz \
   && mkdir /calibre-bin && tar xvf calibre-3.26.0-x86_64.txz -C /calibre-bin \
   && /calibre-bin/calibre_postinstall
