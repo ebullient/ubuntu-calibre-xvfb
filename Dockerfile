@@ -19,6 +19,9 @@ RUN apt-get update \
   && python2 -m pip install --upgrade pip \
   && curl -sL https://deb.nodesource.com/setup_8.x | /bin/bash - \
   && apt-get install -y nodejs \
+  && apt-get -qq clean \
+  && rm -rf /tmp/* /var/lib/apt/lists/* \
   && wget -q https://download.calibre-ebook.com/3.26.0/calibre-3.26.0-x86_64.txz \
   && mkdir /calibre-bin && tar xvf calibre-3.26.0-x86_64.txz -C /calibre-bin \
-  && /calibre-bin/calibre_postinstall
+  && /calibre-bin/calibre_postinstall \
+  && rm calibre-3.26.0-x86_64.txz
