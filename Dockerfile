@@ -1,8 +1,11 @@
 FROM ubuntu:xenial
 
+LABEL maintainer="Erin Schnabel <schnabel@us.ibm.com> (@ebullientworks)"
+
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update \
+  && apt-get -qq upgrade -y \
   && apt-get install -y \
     build-essential \
      curl \
